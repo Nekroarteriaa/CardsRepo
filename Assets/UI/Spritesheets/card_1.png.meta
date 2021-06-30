@@ -1,0 +1,1181 @@
+fileFormatVersion: 2
+guid: bd25f3eb5780444d4949f048c3d98eaf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: card_card_barracks
+  - first:
+      213: 21300002
+    second: card_card_bazookatrooper
+  - first:
+      213: 21300004
+    second: card_card_bazookatrooper3x
+  - first:
+      213: 21300006
+    second: card_card_bomber
+  - first:
+      213: 21300008
+    second: card_card_boomspider
+  - first:
+      213: 21300010
+    second: card_card_bunker
+  - first:
+      213: 21300012
+    second: card_card_coloss
+  - first:
+      213: 21300014
+    second: card_card_commando
+  - first:
+      213: 21300016
+    second: card_card_copter
+  - first:
+      213: 21300018
+    second: card_card_doomtank
+  - first:
+      213: 21300020
+    second: card_card_drill
+  - first:
+      213: 21300022
+    second: card_card_emp
+  - first:
+      213: 21300024
+    second: card_card_freezetower
+  - first:
+      213: 21300026
+    second: card_card_fury
+  - first:
+      213: 21300028
+    second: card_card_gems
+  - first:
+      213: 21300030
+    second: card_card_ghost
+  - first:
+      213: 21300032
+    second: card_card_gold
+  - first:
+      213: 21300034
+    second: card_card_grenadier
+  - first:
+      213: 21300036
+    second: card_card_heal
+  - first:
+      213: 21300038
+    second: card_card_heavytank
+  - first:
+      213: 21300040
+    second: card_card_hideout
+  - first:
+      213: 21300042
+    second: card_card_howitzer
+  - first:
+      213: 21300044
+    second: card_card_infernotrooper
+  - first:
+      213: 21300046
+    second: card_card_lasertank
+  - first:
+      213: 21300048
+    second: card_card_lasertower
+  - first:
+      213: 21300050
+    second: card_card_magnifico
+  - first:
+      213: 21300052
+    second: card_card_missilelauncher
+  - first:
+      213: 21300054
+    second: card_card_missiles
+  - first:
+      213: 21300056
+    second: card_card_missilesilo
+  - first:
+      213: 21300058
+    second: card_card_missiletower
+  - first:
+      213: 21300060
+    second: card_card_mortar
+  - first:
+      213: 21300062
+    second: card_card_paratrooper
+  - first:
+      213: 21300064
+    second: card_card_phantom
+  - first:
+      213: 21300066
+    second: card_card_powergenerator
+  - first:
+      213: 21300068
+    second: card_card_pyrotank
+  - first:
+      213: 21300070
+    second: card_card_revolvertank
+  - first:
+      213: 21300072
+    second: card_card_rifleman
+  - first:
+      213: 21300074
+    second: card_card_rocketcommander
+  - first:
+      213: 21300076
+    second: card_card_rocketeer
+  - first:
+      213: 21300078
+    second: card_card_rush
+  - first:
+      213: 21300080
+    second: card_card_shrub
+  - first:
+      213: 21300082
+    second: card_card_smoke
+  - first:
+      213: 21300084
+    second: card_card_spiderlab
+  - first:
+      213: 21300086
+    second: card_card_spiderling
+  - first:
+      213: 21300088
+    second: card_card_tankfacility
+  - first:
+      213: 21300090
+    second: card_card_tent
+  - first:
+      213: 21300092
+    second: card_card_teslatank
+  - first:
+      213: 21300094
+    second: card_front
+  - first:
+      213: 21300096
+    second: level_support
+  - first:
+      213: 21300098
+    second: basecard-card_front
+  - first:
+      213: 21300100
+    second: basecard-level_support
+  - first:
+      213: 21300102
+    second: card_card_teslatrooper
+  - first:
+      213: 21300104
+    second: barracks
+  - first:
+      213: 21300106
+    second: bazooka_trooper
+  - first:
+      213: 21300108
+    second: bazooka_troopers_3x
+  - first:
+      213: 21300110
+    second: bomber
+  - first:
+      213: 21300112
+    second: boom_spider
+  - first:
+      213: 21300114
+    second: bunker
+  - first:
+      213: 21300116
+    second: card_legendary_mask
+  - first:
+      213: 21300118
+    second: card_mask
+  - first:
+      213: 21300120
+    second: card_unique_mask
+  - first:
+      213: 21300122
+    second: chopper
+  - first:
+      213: 21300124
+    second: colossus
+  - first:
+      213: 21300126
+    second: commando
+  - first:
+      213: 21300128
+    second: doom_tank
+  - first:
+      213: 21300130
+    second: drill
+  - first:
+      213: 21300132
+    second: emp
+  - first:
+      213: 21300134
+    second: freezetower
+  - first:
+      213: 21300136
+    second: gems
+  - first:
+      213: 21300138
+    second: ghost
+  - first:
+      213: 21300140
+    second: gold
+  - first:
+      213: 21300142
+    second: grenadier
+  - first:
+      213: 21300144
+    second: heal
+  - first:
+      213: 21300146
+    second: heavy_tank
+  - first:
+      213: 21300148
+    second: magnifico
+  - first:
+      213: 21300150
+    second: phantom
+  - first:
+      213: 21300152
+    second: rocket_commander
+  - first:
+      213: 21300154
+    second: tesla_tank
+  - first:
+      213: 21300156
+    second: titan
+  - first:
+      213: 21300158
+    second: ufo
+  - first:
+      213: 21300160
+    second: adrenaline
+  - first:
+      213: 21300162
+    second: fury
+  - first:
+      213: 21300164
+    second: hideout
+  - first:
+      213: 21300166
+    second: howitzer
+  - first:
+      213: 21300168
+    second: lasertank
+  - first:
+      213: 21300170
+    second: lasertower
+  - first:
+      213: 21300172
+    second: mini_ufo
+  - first:
+      213: 21300174
+    second: missile_launcher
+  - first:
+      213: 21300176
+    second: missiles
+  - first:
+      213: 21300178
+    second: missilesilo
+  - first:
+      213: 21300180
+    second: missiletower
+  - first:
+      213: 21300182
+    second: mortar
+  - first:
+      213: 21300184
+    second: paratrooper
+  - first:
+      213: 21300186
+    second: powergenerator
+  - first:
+      213: 21300188
+    second: commtower
+  - first:
+      213: 21300190
+    second: tank_general
+  - first:
+      213: 21300192
+    second: scrabby
+  - first:
+      213: 21300194
+    second: revolver_tank
+  - first:
+      213: 21300196
+    second: rifleman
+  - first:
+      213: 21300198
+    second: rocketeer
+  - first:
+      213: 21300200
+    second: spiderlab
+  - first:
+      213: 21300202
+    second: spiderlings
+  - first:
+      213: 21300204
+    second: tent
+  - first:
+      213: 21300206
+    second: toxic_bomb
+  - first:
+      213: 21300208
+    second: zeppelin
+  - first:
+      213: 21300210
+    second: fly
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 16
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 32, y: 28, z: 32, w: 7}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 32
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 34
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: adrenaline
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1676
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c305410000000000800000000000000
+      internalID: 21300160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barracks
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1303
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88305410000000000800000000000000
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bazooka_trooper
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 930
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bazooka_troopers_3x
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 557
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomber
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 184
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boom_spider
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1676
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunker
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 1676
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chopper
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1676
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drill
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 1676
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emp
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 1676
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fly
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1676
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f305410000000000800000000000000
+      internalID: 21300210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fury
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1303
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c305410000000000800000000000000
+      internalID: 21300162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gems
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 930
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 557
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenadier
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 184
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 1303
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b305410000000000800000000000000
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heavy_tank
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 930
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hideout
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 557
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c305410000000000800000000000000
+      internalID: 21300164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lasertank
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 184
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c305410000000000800000000000000
+      internalID: 21300168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lasertower
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1303
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac305410000000000800000000000000
+      internalID: 21300170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mini_ufo
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 1303
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc305410000000000800000000000000
+      internalID: 21300172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: missile_launcher
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 1303
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec305410000000000800000000000000
+      internalID: 21300174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: missiles
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1303
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d305410000000000800000000000000
+      internalID: 21300176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: missilesilo
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 930
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d305410000000000800000000000000
+      internalID: 21300178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: missiletower
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 557
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d305410000000000800000000000000
+      internalID: 21300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mortar
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 184
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d305410000000000800000000000000
+      internalID: 21300182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: powergenerator
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 930
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad305410000000000800000000000000
+      internalID: 21300186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revolver_tank
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 930
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e305410000000000800000000000000
+      internalID: 21300194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rifleman
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 930
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e305410000000000800000000000000
+      internalID: 21300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocketeer
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 557
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e305410000000000800000000000000
+      internalID: 21300198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spiderlab
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 184
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e305410000000000800000000000000
+      internalID: 21300200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spiderlings
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 557
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae305410000000000800000000000000
+      internalID: 21300202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tent
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 184
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce305410000000000800000000000000
+      internalID: 21300204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: toxic_bomb
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 557
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee305410000000000800000000000000
+      internalID: 21300206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zeppelin
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 184
+        width: 264
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f305410000000000800000000000000
+      internalID: 21300208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: ui/spritesheets/card_1
+  assetBundleVariant: default
