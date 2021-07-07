@@ -1,17 +1,21 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 // The presenter will be repsonsible for communicating with the "PlayerModel"
 // and formating the Data provided by the "PlayerModel" for the view
-public class BattlePresenter: IPresenter
+public class BattleDeckPresenter : IBattleDeckPresenter
 {
-    private readonly BattleDeckView view;
+    private readonly IBattleDeckView view;
     private readonly PlayerModel player;
-    private readonly GraphicResources resources;
+    private readonly IGraphicResources resources;
 
     // list of the cards the player has on its account.
     private Dictionary<ulong, CardData> uiCards;
+    public CardData[] CardCollectionData => GetCardCollectionData(player.GetActiveDeck());
 
-    public BattlePresenter(BattleDeckView view, PlayerModel player, GraphicResources resources)
+
+    public BattleDeckPresenter(IBattleDeckView view, PlayerModel player, IGraphicResources resources)
     {
         this.view = view;
         this.player = player;
@@ -21,23 +25,29 @@ public class BattlePresenter: IPresenter
     // Entry point
     public void Present()
     {
-        Setup();
+        uiCards = GenerateUIData(player.GetCards());
+        PresentActiveDeck();
     }
 
-    // Initialize your view data and view callbacks
+
+    public void PresentActiveDeck()
+    {
+        var cardIds = player.GetActiveDeck();
+        view.AssignDataToBattleDeck(GetCardsData(cardIds));
+    }
+
+
     void Setup()
     {
-        uiCards = GenerateUIData(player.GetCards());
+        
 
-        var cardIds = player.GetActiveDeck();
-        //view.ActiveDeck = GetCardsData(cardIds);
-        view.ShowActiveDeck(GetCardsData(cardIds));
 
         // example
         // view.ActiveDeckIndex = player.GetActiveDeckIndex();
         // view.onSetCardInDeck += OnSetCardInDeck
         // ...
     }
+
 
     Dictionary<ulong, CardData> GenerateUIData(Card[] cards)
     {
@@ -53,7 +63,7 @@ public class BattlePresenter: IPresenter
 
     CardData FormatCardData(Card card)
     {
-        return new  CardData()
+        return new CardData()
         {
             energy = card.energy,
             level = card.level,
@@ -79,5 +89,25 @@ public class BattlePresenter: IPresenter
             return cardData;
 
         return null;
+    }
+
+    CardData[] GetCardCollectionData(ulong[] deckCardsIDs)
+    {
+        var tempUICards = new Dictionary<ulong, CardData>(uiCards);
+        
+        foreach (var item in deckCardsIDs)
+            tempUICards.Remove(item);
+
+        var data = new CardData[tempUICards.Count];
+        var dataIndex = 0;
+
+        foreach (var item in tempUICards.Values)
+        {
+            data[dataIndex] = item;
+            dataIndex++;
+        }
+
+        return data;
+
     }
 }

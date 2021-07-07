@@ -9,9 +9,19 @@ public class TestInitialization : MonoBehaviour
     void Start()
     {
         var model = new PlayerModel(cards);
+        //var resources = GetComponent<GraphicResources>();
         var resources = GetComponent<GraphicResources>();
-        var view = FindObjectOfType<BattleDeckView>();
-        var presenter = new BattlePresenter(view, model, resources);
-        presenter.Present();
+        var view = FindObjectOfType<CardSelectionView>();
+        var battleDeckPresenter = new CardSelectionPresenter(view, model, resources);
+        battleDeckPresenter.Present();
+
+
+        //var view = FindObjectOfType<BattleDeckView>();
+        //var battleDeckPresenter = new BattlePresenter(view, model, resources);
+        //ActivatePresenter(battleDeckPresenter);
+
+        //var deckBarView = FindObjectOfType<DeckBarView>();
+        //var deckPresenter = new DeckBarPresenter(deckBarView, model, battleDeckPresenter);
+        //ActivatePresenter(deckPresenter);
     }
 }

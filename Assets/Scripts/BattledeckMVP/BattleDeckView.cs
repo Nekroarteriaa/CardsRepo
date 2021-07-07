@@ -4,24 +4,16 @@ using UnityEngine.UI;
 // Your view will be responsible for displaying the formated data
 // and manage user interaction
 // Feel free to modify anything in there
-public partial class BattleDeckView : MonoBehaviour, ICardShower
+public class BattleDeckView : IBattleDeckView
 {
-    [SerializeField]
-    Transform deck;
+    private readonly CardWidget[] deckCards;
 
-    //[SerializeField]
-    //Button 
-
-    CardWidget[] deckCards;
-
-    #region UnityMethods
-    void Awake()
+    public BattleDeckView(CardWidget[] deckCards)
     {
-        deckCards = deck.GetComponentsInChildren<CardWidget>();
+        this.deckCards = deckCards;
     }
-    #endregion
 
-    public void ShowActiveDeck(CardData[] cardsData)
+    public void AssignDataToBattleDeck(CardData[] cardsData)
     {
         var deckCardsLength = deckCards.Length;
         var cardsDataLength = cardsData.Length;
@@ -30,7 +22,7 @@ public partial class BattleDeckView : MonoBehaviour, ICardShower
         {
             if (i <= cardsDataLength)
             {
-                deckCards[i].SetCardData(cardsData[i]);
+                deckCards[i].SetCardData(cardsData[i], true);
                 deckCards[i].gameObject.SetActive(true);
             }
             else
@@ -40,6 +32,4 @@ public partial class BattleDeckView : MonoBehaviour, ICardShower
             }
         }
     }
-
-   
 }
