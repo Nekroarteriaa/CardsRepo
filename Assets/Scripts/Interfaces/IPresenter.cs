@@ -18,6 +18,11 @@ public interface IDeckBarPresenter<T>: IPresenter
     bool NeedsToReloadCardCollection { get; }
 }
 
+public interface ICardCollectionBarPresenter<T>: IPresenter<T>
+{
+
+}
+
 public interface IBattleDeckPresenter<T> : IPresenter<T>
 {
     void PresentActiveDeck();

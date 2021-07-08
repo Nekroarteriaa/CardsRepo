@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CardSelectionView : MonoBehaviour, ICardSelectionView
 {
@@ -51,6 +52,16 @@ public class CardSelectionView : MonoBehaviour, ICardSelectionView
     #endregion
 
 
+    #region  SortBarView
+    [SerializeField]
+    TextMeshProUGUI cardCollectionBarText;
+
+    [SerializeField]
+    CollectionCardsSortButton cardsSortButton;
+    public ICardCollectionBarView CardCollectionBarView { get; set ; }
+    public event Action<uint> onSortButtonClicked;
+    #endregion
+
     #region Unity Methods
     private void Awake()
     {
@@ -62,17 +73,20 @@ public class CardSelectionView : MonoBehaviour, ICardSelectionView
         BarView = new DeckBarView(deckButtonWidgets);
         CollectionView = new CardCollectionView(cardPrefab, cardCollectionColumnContainer, cardCollectionRowsContainer, cardCollectionRowsContentCount);
         EditModeView = new EditModeView(cardCollectionColumnContainer, editModeCardContainer, editModeCard);
+        CardCollectionBarView = new CardCollectionBarView(cardsSortButton, cardCollectionBarText);
     }
 
 
     private void OnEnable()
     {
+        cardsSortButton.onElementClicked += OnSortButtonClicked;
         exitEditModeButton.onClick.AddListener(OnExitEditModeButtonClicked);
         foreach (var item in deckButtonWidgets)
             item.onElementClicked += OnBarButtonClicked;
     }
     private void OnDisable()
     {
+        cardsSortButton.onElementClicked -= OnSortButtonClicked;
         exitEditModeButton.onClick.RemoveAllListeners();
         foreach (var item in deckButtonWidgets)
             item.onElementClicked -= OnBarButtonClicked;
@@ -144,6 +158,11 @@ public class CardSelectionView : MonoBehaviour, ICardSelectionView
     private void OnCardDropped(CardWidget cardDropped)
     {
         onCardDroppedInEditMode?.Invoke(cardDropped);
+    }
+
+    private void OnSortButtonClicked(uint counter)
+    {
+        onSortButtonClicked?.Invoke(counter);
     }
 
 

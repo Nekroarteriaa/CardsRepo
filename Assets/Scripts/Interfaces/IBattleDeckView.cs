@@ -47,6 +47,11 @@ public interface IEditModeView
     void SetUpForNormalMode();
 }
 
+public interface ICardCollectionBarView
+{
+    void SortCardCollection();
+}
+
 
 public interface IElementClicked<T>
 {
@@ -59,7 +64,7 @@ public interface IElementClicked
 }
 
 
-public interface ICardSelectionView : IViewController<uint>, IDeckBarButtonHandler<uint>, ICardClicked<CardWidget>, IDropCard<CardWidget>
+public interface ICardSelectionView : IViewController<uint>, IDeckBarButtonHandler<uint>, ICardClicked<CardWidget>, IDropCard<CardWidget>, ISortButtonHandler<uint>
 {
     void ReloadView();
 }
@@ -70,6 +75,7 @@ public interface IViewController<T>
     IDeckBarView<T> BarView { get; set; }
     ICardCollectionView CollectionView { get; set; }
     IEditModeView EditModeView { get; set; }
+    ICardCollectionBarView CardCollectionBarView{get; set;}
 }
 
 
@@ -80,6 +86,11 @@ public interface IGraphicResources
     Sprite GetFrameForRarity(Rarity rarity);
     Sprite GetMaskForRarity(Rarity rarity);
 
+}
+
+public interface ISortButtonHandler<T>
+{
+    event Action<T> onSortButtonClicked;
 }
 
 public interface IDeckBarButtonHandler<T>

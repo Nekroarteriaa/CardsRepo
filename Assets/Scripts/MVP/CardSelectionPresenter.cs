@@ -10,7 +10,9 @@ public class CardSelectionPresenter : IPresenter
     public readonly ICardCollectionPresenter<CardData[]> CardCollectionPrsntr;
     public readonly CardSubMenuPresenter CardSubMenuPrstr;
     public readonly IEditModePresenter<CardWidget> EditCardModePrsntr;
+    public readonly ICardCollectionBarPresenter<uint> CardCollectionBarPrsntr;
     public readonly ICardSelectionView cardSelectionView;
+    
 
 
     public CardSelectionPresenter(ICardSelectionView cardSelectionView, PlayerModel player, IGraphicResources graphicResources)
@@ -20,6 +22,7 @@ public class CardSelectionPresenter : IPresenter
         CardCollectionPrsntr = new CardCollectionPresenter(cardSelectionView.CollectionView);
         CardSubMenuPrstr = new CardSubMenuPresenter();
         EditCardModePrsntr = new EditModePresenter(cardSelectionView.EditModeView);
+        CardCollectionBarPrsntr = new CardCollectionBarPresenter(cardSelectionView.CardCollectionBarView);
 
         this.cardSelectionView = cardSelectionView;
         this.cardSelectionView.onDeckBarButtonClicked += OnDeckBarButtonClicked;
@@ -27,6 +30,7 @@ public class CardSelectionPresenter : IPresenter
         this.cardSelectionView.onCardClicked += OnCardClicked;
         this.cardSelectionView.onExitEditModeButtonClicked += OnExitEditModeButtonClicked;
         this.cardSelectionView.onCardDroppedInEditMode += OnDropCard;
+        this.cardSelectionView.onSortButtonClicked += OnSortButtonClicked;
 
     }
 
@@ -124,11 +128,18 @@ public class CardSelectionPresenter : IPresenter
         BattleDeckPrsntr.PresentActiveDeck();
     }
 
+    void OnSortButtonClicked(uint counter)
+    {
+
+    }
+
     ~CardSelectionPresenter()
     {
-        cardSelectionView.onDeckBarButtonClicked -= OnDeckBarButtonClicked;
-        cardSelectionView.onSelectedButtonClicked -= OnSelectedButtonClicked;
+        this.cardSelectionView.onDeckBarButtonClicked -= OnDeckBarButtonClicked;
+        this.cardSelectionView.onSelectedButtonClicked -= OnSelectedButtonClicked;
         this.cardSelectionView.onCardClicked -= OnCardClicked;
         this.cardSelectionView.onExitEditModeButtonClicked -= OnExitEditModeButtonClicked;
+        this.cardSelectionView.onCardDroppedInEditMode -= OnDropCard;
+        this.cardSelectionView.onSortButtonClicked -= OnSortButtonClicked;
     }
 }
