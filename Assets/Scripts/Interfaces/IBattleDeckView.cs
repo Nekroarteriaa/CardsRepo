@@ -6,11 +6,14 @@ using UnityEngine.EventSystems;
 public interface IBattleDeckView
 {
     void AssignDataToBattleDeck(CardData[] cardsData);
+    void AnimateDeckOnEditMode();
+    void StopAnimationOnDeckOnEditMode();
 }
 
 public interface IDeckBarView<T>
 {
     void SwitchDeck(T deckIndex);
+    int BarButtonsCount { get; }
 }
 
 public interface IDeckButton<T> : IElementClicked<T>
@@ -20,25 +23,19 @@ public interface IDeckButton<T> : IElementClicked<T>
 
 public interface ICardButton<T> : IElementClicked<T>
 {
-    //void s(bool state);
     event Action<T> onInfoButtonClicked;
     event Action<T> onSelectButtonClicked;
     bool IsDeckCard { get; }
     CardData CardWidgetData{get;}
 }
 
-public interface IEditModeElement
-{
-    CardWidget SelectedCardCollectionElement { get; }
-    void SetSelectedElementTransform(CardWidget selectedElementTransform);
-    //int GetSelectedElementSibilingNumber();
-}
-
 public interface ICardCollectionView
 {
     void CreateCardCollection(CardData[] obj);
     List<CardWidget> GetCardCollection { get; }
-    
+
+    void ReloadCardCollection(CardData[] newCollection);
+
 }
 
 public interface IEditModeView
@@ -58,16 +55,13 @@ public interface IElementClicked<T>
 
 public interface IElementClicked
 {
-    Action onElementCliked { get; }
+    event Action onElementCliked;
 }
 
 
 public interface ICardSelectionView : IViewController<uint>, IDeckBarButtonHandler<uint>, ICardClicked<CardWidget>, IDropCard<CardWidget>
 {
-
     void ReloadView();
-    //event Action
-
 }
 
 public interface IViewController<T>
@@ -76,10 +70,6 @@ public interface IViewController<T>
     IDeckBarView<T> BarView { get; set; }
     ICardCollectionView CollectionView { get; set; }
     IEditModeView EditModeView { get; set; }
-
-    //void SetClickListenerToCollectionCards(IViewController view);
-    //event Action
-
 }
 
 
@@ -108,19 +98,27 @@ public interface ICardClicked<T>
     void RemoveClickListenerToCards();
 }
 
-public interface IDropCard<T>
+public interface IEditModeElement
 {
-    event Action<T> onDropCard;
+    CardWidget SelectedCardCollectionElement { get; }
+    void SetSelectedElementTransform(CardWidget selectedElementTransform);
 }
 
-public interface IDraggingBehaviour: IPointerDownHandler,IBeginDragHandler,IEndDragHandler,IDragHandler
+public interface IDropCard<T>
 {
+    event Action<T> onCardDroppedInEditMode;
+}
 
+public interface IDraggingBehaviour: IBeginDragHandler,IEndDragHandler,IDragHandler
+{
+    RectTransform DraggedElementRectTransform { get; }
+    CanvasGroup DraggedElementCanvasGroup { get;}
+    void SetDraggedElementToOriginalPosition();
 }
 
 public interface IDroppingBehaviour<T> : IDropHandler
 {
-
+    event Action<T> onCardDropped;
 }
 
 //public interface ICardClicked<T>

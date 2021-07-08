@@ -15,9 +15,13 @@ public class DroppingBehaviour : MonoBehaviour, IDroppingBehaviour<CardWidget>
 
     public void OnDrop(PointerEventData eventData)
     {
+        var draggedElement = eventData.pointerDrag.GetComponent<DraggingBehaviour>() ? eventData.pointerDrag.GetComponent<IDraggingBehaviour>() : null;
+        if (draggedElement == null)
+            return;
+
         OnCardDropped(selfCard);
-        eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-        eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        draggedElement.SetDraggedElementToOriginalPosition();
+        
     }
 
     void OnCardDropped(CardWidget cardWidget)

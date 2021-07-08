@@ -11,6 +11,9 @@ public class DraggingBehaviour : MonoBehaviour, IDraggingBehaviour
     CanvasGroup canvasGroup;
     Vector2 originalPosition;
 
+    public RectTransform DraggedElementRectTransform => rectTransform;
+    public CanvasGroup DraggedElementCanvasGroup => canvasGroup;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -20,7 +23,6 @@ public class DraggingBehaviour : MonoBehaviour, IDraggingBehaviour
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        print("Aqui");
         canvasGroup.blocksRaycasts = false;
     }
 
@@ -31,11 +33,13 @@ public class DraggingBehaviour : MonoBehaviour, IDraggingBehaviour
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        SetDraggedElementToOriginalPosition();
+    }
+
+    public void SetDraggedElementToOriginalPosition()
+    {
+        rectTransform.anchoredPosition = originalPosition;
         canvasGroup.blocksRaycasts = true;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        print("MouseEntered");
-    }
 }

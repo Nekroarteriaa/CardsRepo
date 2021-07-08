@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -9,28 +10,27 @@ public class PlayerModel
     public const uint DECK_COLLECTION_SIZE = 5;
 
     DeckCollection deckCollection;
-    Card[] cardCollection;
+    Dictionary<uint, Card[]> cardsCollection = new Dictionary<uint, Card[]>();
 
     // Generate fake data on creation.
     public PlayerModel(Sprite[] availableCards)
     {
         deckCollection = GeneratePlayerData();
-        cardCollection = new Card[availableCards.Length];
+        var cardCollection = new Card[availableCards.Length];
         for (uint i = 0; i < cardCollection.Length; i++)
+        {
             cardCollection[i] = GenerateCard(i, availableCards[i].name);
+        }
+
+        for (uint i = 0; i < DECK_COLLECTION_SIZE; i++)
+        {
+            cardsCollection.Add(i, cardCollection);
+        }
     }
 
     public Card[] GetCards()
     {
-        return cardCollection;
-    }
-
-    public Card GetCardById(ulong id)
-    {
-        if (id >= (ulong)cardCollection.Length)
-            throw new System.Exception("Invalid card Id: "+id);
-        
-        return cardCollection[id];
+        return cardsCollection[deckCollection.activeDeck];
     }
 
     public ulong[] GetActiveDeck()
@@ -51,8 +51,8 @@ public class PlayerModel
     public void SetDeckAtIndex(uint deckIndex, ulong[] deck)
     {
         if (deckIndex >= DECK_COLLECTION_SIZE)
-            throw new System.Exception("Deck index over the maximum size: "+(DECK_COLLECTION_SIZE-1).ToString());
-        
+            throw new System.Exception("Deck index over the maximum size: " + (DECK_COLLECTION_SIZE - 1).ToString());
+
         if (deck.Length != DECK_SIZE)
             throw new System.Exception(
                 string.Format("Invalid deck size, excpecting size of {0} but got {1}", DECK_SIZE, deck.Length));
@@ -69,7 +69,7 @@ public class PlayerModel
     public void SetActiveDeck(uint deckIndex)
     {
         if (deckIndex >= DECK_COLLECTION_SIZE)
-            throw new System.Exception("Deck index over the maximum size: "+(DECK_COLLECTION_SIZE-1).ToString());
+            throw new System.Exception("Deck index over the maximum size: " + (DECK_COLLECTION_SIZE - 1).ToString());
 
         deckCollection.activeDeck = deckIndex;
     }
@@ -91,7 +91,7 @@ public class PlayerModel
             activeDeck = 0
         };
 
-        for (uint  i = 0; i  < DECK_COLLECTION_SIZE; i++)
+        for (uint i = 0; i < DECK_COLLECTION_SIZE; i++)
             collection.decks[i] = deck;
 
         return collection;
@@ -108,4 +108,7 @@ public class PlayerModel
             rarity = (Rarity)Random.Range(0, (int)Rarity.MAX)
         };
     }
+
+
+
 }

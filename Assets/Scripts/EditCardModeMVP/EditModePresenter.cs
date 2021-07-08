@@ -24,13 +24,12 @@ public class EditModePresenter : IEditModePresenter<CardWidget>
         deckCard.SetCardData(editCardModeView.EditModeCard.SelectedCardCollectionElement.CardWidgetData, true);
         editCardModeView.EditModeCard.SelectedCardCollectionElement.SetCardData(dataTemp, false);
     }
-
-    public void SwitchCardUsingDrop(CardWidget deckCard)
-    {
-        var dataTemp = deckCard.CardWidgetData;
-        deckCard.SetCardData(editCardModeView.EditModeCard.SelectedCardCollectionElement.CardWidgetData, true);
-        editCardModeView.EditModeCard.SelectedCardCollectionElement.SetCardData(dataTemp, false);
-    }
+    //public void SwitchCardUsingDrop(CardWidget deckCard)
+    //{
+    //    var dataTemp = deckCard.CardWidgetData;
+    //    deckCard.SetCardData(editCardModeView.EditModeCard.SelectedCardCollectionElement.CardWidgetData, true);
+    //    editCardModeView.EditModeCard.SelectedCardCollectionElement.SetCardData(dataTemp, false);
+    //}
     public void ExitEditMode()
     {
         editCardModeView.SetUpForNormalMode();

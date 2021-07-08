@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DeckBarPresenter : IDeckBarPresenter<uint>
 {
-
     public bool NeedsToReloadCardCollection => !isTheSameButtonIndex;
     
     private readonly IDeckBarView<uint> deckBarView;
@@ -27,8 +26,6 @@ public class DeckBarPresenter : IDeckBarPresenter<uint>
     {
         var activeIndex = player.GetActiveDeckIndex();
         OnDeckButtonPressed(activeIndex);
-        deckBarView.SwitchDeck(activeIndex);
-        previousIndexButton = 0;
     }
 
     public void OnDeckButtonPressed(uint indexButton)

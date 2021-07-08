@@ -15,9 +15,12 @@ public class CardCollectionPresenter : ICardCollectionPresenter<CardData[]>
     {
         PresentCardCollection(cardsData);
     }
-    
 
-    public void PresentCardCollection(CardData[] cardsData)
+    public void ReloadCardCollection(CardData[] cardsData)
+    {
+        view.ReloadCardCollection(cardsData);
+    }
+    void PresentCardCollection(CardData[] cardsData)
     {
         view.CreateCardCollection(cardsData);
     }

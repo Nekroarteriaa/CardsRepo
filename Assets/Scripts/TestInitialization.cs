@@ -9,7 +9,6 @@ public class TestInitialization : MonoBehaviour
     void Start()
     {
         var model = new PlayerModel(cards);
-        //var resources = GetComponent<GraphicResources>();
         var resources = GetComponent<GraphicResources>();
         var view = FindObjectOfType<CardSelectionView>();
         var battleDeckPresenter = new CardSelectionPresenter(view, model, resources);

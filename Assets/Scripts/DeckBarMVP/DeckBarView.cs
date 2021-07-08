@@ -7,6 +7,9 @@ public class DeckBarView : IDeckBarView<uint>
 {
     uint previousActiveIndex;
     private readonly DeckButtonWidget[] deckButtonWidgets;
+
+    public int BarButtonsCount => deckButtonWidgets.Length;
+
     public DeckBarView(DeckButtonWidget[] deckButtonWidgets)
     {
         this.deckButtonWidgets = deckButtonWidgets;

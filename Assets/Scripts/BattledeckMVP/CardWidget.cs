@@ -1,6 +1,7 @@
+using System;
 using UnityEngine.UI;
 using UnityEngine;
-using System;
+using DG.Tweening;
 
 // Extend as requiered
 public class CardWidget : MonoBehaviour, ICardButton<CardWidget>, IEditModeElement
@@ -27,8 +28,6 @@ public class CardWidget : MonoBehaviour, ICardButton<CardWidget>, IEditModeEleme
     [SerializeField]
     TMPro.TMP_Text level;
     [SerializeField]
-    Button cardButton;
-    [SerializeField]
     TMPro.TMP_Text energy;
 
     [SerializeField]
@@ -40,22 +39,30 @@ public class CardWidget : MonoBehaviour, ICardButton<CardWidget>, IEditModeEleme
     [SerializeField]
     Button selectButton;
 
+    CardInteractorHandler cardInteractorHandler;
+
     private void Awake()
     {
         HideClickSubMenu();
         selectedCardCollectionElement = this;
+        cardInteractorHandler = GetComponentInChildren<CardInteractorHandler>();
     }
 
     private void OnEnable()
     {
-        cardButton.onClick.AddListener(() => { OnCardClicked(this); });
-        selectButton.onClick.AddListener(() => { OnSelectedButtonClicked(this); });
-        infoButton.onClick.AddListener(()=> { OnInfoButtonClicked(this); });
+        //cardButton.onClick.AddListener(() => { /*OnCardClicked(this); */});
+        cardInteractorHandler.onClickUp += OnClickUp;
+        cardInteractorHandler.onClickDown += OnClickDown;
+        selectButton.onClick.AddListener(() => { OnSelectedButtonClicked(this);});
+        infoButton.onClick.AddListener(()=> { /*OnInfoButtonClicked(this); */});
+
     }
+
 
     private void OnDisable()
     {
-        cardButton.onClick.RemoveAllListeners();
+        //cardButton.onClick.RemoveAllListeners();
+        cardInteractorHandler.onClickUp -= OnClickUp;
         selectButton.onClick.RemoveAllListeners();
         infoButton.onClick.RemoveAllListeners();
     }
@@ -92,11 +99,15 @@ public class CardWidget : MonoBehaviour, ICardButton<CardWidget>, IEditModeEleme
         
     }
 
-    
-
-    void OnCardClicked(CardWidget cardWidget)
+    private void OnClickUp()
     {
-        onElementClicked?.Invoke(cardWidget);
+        onElementClicked?.Invoke(this);
+        transform.DOScale(new Vector3(1, 1, 1), .2f);
+    }
+    private void OnClickDown()
+    {
+        //throw new NotImplementedException();
+        transform.DOScale(new Vector3(.9f, .9f, .9f), .2f);
     }
 
     void OnInfoButtonClicked(CardWidget cardWidget)

@@ -1,22 +1,16 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 
 public class CardCollectionView : ICardCollectionView
 {
     public List<CardWidget> GetCardCollection => cardWidgets;
     List<CardWidget> cardWidgets;
-    
 
     private readonly CardWidget cardPrefab;
     private readonly Transform cardCollectionVerticalContainer;
     private readonly Transform cardCollectionRowsContainer;
     private readonly int cardCollectionRowsContentCount;
     
-
-   
-
     public CardCollectionView(CardWidget cardPrefab, Transform cardCollectionVerticalContainer, Transform cardCollectionRowsContainer, int cardCollectionRowsContentCount)
     {
         this.cardPrefab = cardPrefab;
@@ -32,6 +26,23 @@ public class CardCollectionView : ICardCollectionView
         if (cardWidgets.Count != 0)
             return;
 
+        CreateCollectionCardGrid(cardsData);
+    }
+
+
+    public void ReloadCardCollection(CardData[] newCollection)
+    {
+        if (cardWidgets.Count == 0)
+            return;
+
+        for (int i = 0; i < newCollection.Length; i++)
+        {
+            cardWidgets[i].SetCardData(newCollection[i], false);
+        }
+    }
+
+    private void CreateCollectionCardGrid(CardData[] cardsData)
+    {
         var cardsDataLength = cardsData.Length;
         var totalRowsContent = cardCollectionRowsContentCount;
         var totalColumns = cardsDataLength / cardCollectionRowsContentCount;
@@ -43,8 +54,8 @@ public class CardCollectionView : ICardCollectionView
         {
             var column = GameObject.Instantiate(cardCollectionRowsContainer, cardCollectionVerticalContainer);
             security = ((i + 1) * totalRowsContent);
-            
-            if(security > cardsDataLength)
+
+            if (security > cardsDataLength)
             {
                 security = security - cardsDataLength;
                 totalRowsContent -= security;
@@ -60,15 +71,5 @@ public class CardCollectionView : ICardCollectionView
             }
 
         }
-
-       // ReloadGrid();
-    }
-
-
-
-    void ReloadGrid()
-    {
-        cardCollectionVerticalContainer.gameObject.SetActive(false);
-        cardCollectionVerticalContainer.gameObject.SetActive(true);
     }
 }

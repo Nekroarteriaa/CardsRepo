@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class EditModeView : IEditModeView
 {
@@ -14,6 +15,7 @@ public class EditModeView : IEditModeView
     private readonly Transform editModeCardContainer;
     VerticalLayoutGroup verticalLayout;
     List<HorizontalLayoutGroup> horizontalContainers;
+    Vector3 editModeCardOriginalPosition;
 
     int leftPadding, rightPadding, topPadding, bottomPadding;
     float spacingValue;
@@ -24,6 +26,7 @@ public class EditModeView : IEditModeView
         this.cardCollectionVerticalContainer = cardCollectionVerticalContainer;
         this.editModeCardContainer = editModeCardContainer;
         this.editModeCard = editModeCard;
+        editModeCardOriginalPosition = editModeCard.transform.localPosition;
 
 
         verticalLayout = cardCollectionVerticalContainer.GetComponent<VerticalLayoutGroup>();
@@ -61,6 +64,8 @@ public class EditModeView : IEditModeView
     {
         editModeCard.SetCardData(selectedCard.CardWidgetData, false);
         editModeCard.SetSelectedElementTransform(selectedCard);
+        editModeCard.transform.localPosition = selectedCard.transform.localPosition;
+        editModeCard.transform.DOLocalMove(editModeCardOriginalPosition, 1f);
     }
 
     public void SetUpForNormalMode()

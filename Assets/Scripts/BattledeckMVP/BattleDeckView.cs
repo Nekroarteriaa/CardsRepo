@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 // Your view will be responsible for displaying the formated data
 // and manage user interaction
@@ -11,6 +12,21 @@ public class BattleDeckView : IBattleDeckView
     public BattleDeckView(CardWidget[] deckCards)
     {
         this.deckCards = deckCards;
+    }
+
+    public void AnimateDeckOnEditMode()
+    {
+        foreach (var item in deckCards)
+        {
+            item.transform.DORotate(new Vector3(0, 0, -5f), .25f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InSine).OnKill(()=> { item.transform.DORotate(new Vector3(0, 0, 0), .25f); });
+        }
+    }
+    public void StopAnimationOnDeckOnEditMode()
+    {
+        foreach (var item in deckCards)
+        {
+            item.transform.DOKill();
+        }
     }
 
     public void AssignDataToBattleDeck(CardData[] cardsData)
@@ -32,4 +48,5 @@ public class BattleDeckView : IBattleDeckView
             }
         }
     }
+
 }

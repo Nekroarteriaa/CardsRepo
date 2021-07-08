@@ -41,8 +41,6 @@ public class GraphicResources : MonoBehaviour, IGraphicResources
         
         return null;
     }
-
-
 }
 
 public class GraphicResourcesTest: IGraphicResources

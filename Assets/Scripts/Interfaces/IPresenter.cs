@@ -18,10 +18,15 @@ public interface IDeckBarPresenter<T>: IPresenter
     bool NeedsToReloadCardCollection { get; }
 }
 
-public interface IBattleDeckPresenter : IPresenter
+public interface IBattleDeckPresenter<T> : IPresenter<T>
 {
     void PresentActiveDeck();
-    CardData[] CardCollectionData{ get; }
+    CardData[] CardCollectionData ();
+    void PresentEditModeOnDeckCards();
+    void StopEditModeOnDeckCards();
+    void SaveSelectedDeckChanges(ulong deckCarId, CardWidget deckCard, ulong collectionCardId, CardWidget collectionCard);
+
+    ulong GetCardDataIDByValue(CardData cardData);
 }
 
 public interface ICardSubMenuPresenter<T> : IPresenter<T>
@@ -30,7 +35,7 @@ public interface ICardSubMenuPresenter<T> : IPresenter<T>
 }
 public interface ICardCollectionPresenter<T> : IPresenter<T>
 {
-    void PresentCardCollection(T cardsData);
+    void ReloadCardCollection(T cardsData);
 }
 
 public interface ICardPickerPresenter<T>: IPresenter<T>

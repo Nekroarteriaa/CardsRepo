@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CardSelectionPresenter : IPresenter
 {
-    public readonly IBattleDeckPresenter BattleDeckPrsntr;
+    public readonly IBattleDeckPresenter<int> BattleDeckPrsntr;
     public readonly IDeckBarPresenter<uint> DeckBarPrsntr;
     public readonly ICardCollectionPresenter<CardData[]> CardCollectionPrsntr;
     public readonly CardSubMenuPresenter CardSubMenuPrstr;
@@ -26,7 +26,7 @@ public class CardSelectionPresenter : IPresenter
         this.cardSelectionView.onSelectedButtonClicked += OnSelectedButtonClicked;
         this.cardSelectionView.onCardClicked += OnCardClicked;
         this.cardSelectionView.onExitEditModeButtonClicked += OnExitEditModeButtonClicked;
-        this.cardSelectionView.onDropCard += OnDropCard;
+        this.cardSelectionView.onCardDroppedInEditMode += OnDropCard;
 
     }
 
@@ -37,30 +37,43 @@ public class CardSelectionPresenter : IPresenter
 
     private void LoadGameCards()
     {
-        BattleDeckPrsntr.Present();
+        BattleDeckPrsntr.Present(cardSelectionView.BarView.BarButtonsCount);
         DeckBarPrsntr.Present();
-        CardCollectionPrsntr.Present(BattleDeckPrsntr.CardCollectionData);
+        CardCollectionPrsntr.Present(BattleDeckPrsntr.CardCollectionData());
         cardSelectionView.SetClickListenerToCards();
     }
 
   
 
-    private void OnCardClicked(CardWidget obj)
+    private void OnCardClicked(CardWidget clickedCard)
     {
         if (!cardSelectionView.EditModeView.IsInEditMode)
-            CardSubMenuPrstr.Present(obj);
+            CardSubMenuPrstr.Present(clickedCard);
         else
         {
-            EditCardModePrsntr.SwitchCardFromCollectionToDeck(obj);
-            ExitEditMode();
+            SwitchCardsPlaces(clickedCard);
         }
 
     }
 
-    private void OnDropCard(CardWidget obj)
+
+    private void OnDropCard(CardWidget deckCard)
     {
-        EditCardModePrsntr.SwitchCardFromCollectionToDeck(obj);
+        SwitchCardsPlaces(deckCard);
+    }
+
+    private void SwitchCardsPlaces(CardWidget deckCard)
+    {
+        SaveSwitchDataOnTheDictionary(deckCard);
+        EditCardModePrsntr.SwitchCardFromCollectionToDeck(deckCard);
         ExitEditMode();
+    }
+
+    private void SaveSwitchDataOnTheDictionary(CardWidget deckCard)
+    {
+        var deckCardId = BattleDeckPrsntr.GetCardDataIDByValue(deckCard.CardWidgetData);
+        var collectionCardId = BattleDeckPrsntr.GetCardDataIDByValue(cardSelectionView.EditModeView.EditModeCard.CardWidgetData);
+        BattleDeckPrsntr.SaveSelectedDeckChanges(deckCardId, deckCard, collectionCardId, cardSelectionView.EditModeView.EditModeCard);
     }
 
     private void OnExitEditModeButtonClicked()
@@ -73,11 +86,18 @@ public class CardSelectionPresenter : IPresenter
         CardSubMenuPrstr.HideSubMenu();
         EditCardModePrsntr.ExitEditMode();
         cardSelectionView.ReloadView();
+        BattleDeckPrsntr.StopEditModeOnDeckCards();
     }
 
     private void OnSelectedButtonClicked(CardWidget obj)
     {
+        EnterEditMode(obj);
+    }
+
+    private void EnterEditMode(CardWidget obj)
+    {
         EditCardModePrsntr.Present(obj);
+        BattleDeckPrsntr.PresentEditModeOnDeckCards();
     }
 
     private void OnDeckBarButtonClicked(uint buttonIndex)
@@ -87,14 +107,22 @@ public class CardSelectionPresenter : IPresenter
 
     private void LoadDeck(uint buttonIndex)
     {
-        BattleDeckPrsntr.PresentActiveDeck();
-        DeckBarPrsntr.OnDeckButtonPressed(buttonIndex);
-
-        if (!DeckBarPrsntr.NeedsToReloadCardCollection)
-            return;
+        PresentTheSelectedDeck(buttonIndex);
+        ReloadTheCardCollection();
     }
 
+    private void ReloadTheCardCollection()
+    {
+        if (!DeckBarPrsntr.NeedsToReloadCardCollection)
+            return;
+        CardCollectionPrsntr.ReloadCardCollection(BattleDeckPrsntr.CardCollectionData());
+    }
 
+    private void PresentTheSelectedDeck(uint buttonIndex)
+    {
+        DeckBarPrsntr.OnDeckButtonPressed(buttonIndex);
+        BattleDeckPrsntr.PresentActiveDeck();
+    }
 
     ~CardSelectionPresenter()
     {

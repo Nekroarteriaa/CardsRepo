@@ -47,7 +47,7 @@ public class CardSelectionView : MonoBehaviour, ICardSelectionView
     Button exitEditModeButton;
     DroppingBehaviour[] droppingsSlots;
     public IEditModeView EditModeView { get; set;}
-    public event Action<CardWidget> onDropCard;
+    public event Action<CardWidget> onCardDroppedInEditMode;
     #endregion
 
 
@@ -143,7 +143,7 @@ public class CardSelectionView : MonoBehaviour, ICardSelectionView
 
     private void OnCardDropped(CardWidget cardDropped)
     {
-       onDropCard?.Invoke(cardDropped);
+        onCardDroppedInEditMode?.Invoke(cardDropped);
     }
 
 
