@@ -1,19 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
 using DG.Tweening;
 
 public class CardCollectionBarView : ICardCollectionBarView
 {
     private readonly CollectionCardsSortButton sortButton;
     private readonly SortTypes sortTypes;
+    private readonly TextMeshProUGUI indexCollectionBarText;
 
-    public CollectionCardsSortButton SortButton => sortButton;
-
-    public CardCollectionBarView(CollectionCardsSortButton sortButton, SortTypes sortTypes)
+    public CardCollectionBarView(CollectionCardsSortButton sortButton, SortTypes sortTypes, TextMeshProUGUI indexCollectionBarText)
     {
         this.sortButton = sortButton;
         this.sortTypes = sortTypes;
+        this.indexCollectionBarText = indexCollectionBarText;
     }
 
     public void SortArrayByLevel(ref CardData[] data)
@@ -37,7 +36,8 @@ public class CardCollectionBarView : ICardCollectionBarView
                 data[minIndex] = temp;
             }
         }
-        AnimateSortButton();
+        
+        indexCollectionBarText.text = string.Format("{0}/53", data.Length);
     }
     public void SortArrayByEnergyCost(ref CardData[] data)
     {
@@ -60,7 +60,6 @@ public class CardCollectionBarView : ICardCollectionBarView
                 data[minIndex] = temp;
             }
         }
-        AnimateSortButton();
     }
     public void SortArrayByRarity(ref CardData[] data)
     {
@@ -83,12 +82,27 @@ public class CardCollectionBarView : ICardCollectionBarView
                 data[minIndex] = temp;
             }
         }
-        AnimateSortButton();
     }
 
-    void AnimateSortButton()
+    public void AnimateSortButton()
     {
-        sortButton.transform.DOPunchScale(new Vector3(1.3f, 1.3f, 1.3f), .1f, 2, .5f);
+        sortButton.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), .1f).OnComplete(() => {
+            sortButton.transform.DOScale(new Vector3(1f, 1f, 1f), .1f);
+        });
     }
 
+    public void ChangeSortButtonTextAndAppearance(SortTypes sortTypes)
+    {
+        sortButton.ApplyCustomChangesInSortButton(sortTypes);
+    }
+
+    public void HideCardCollectionBar()
+    {
+        sortButton.transform.parent.gameObject.SetActive(false);
+    }
+
+    public void ShowCardCollectionBar()
+    {
+        sortButton.transform.parent.gameObject.SetActive(true);
+    }
 }

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CardCollectionBarPresenter : ICardCollectionBarPresenter<SortTypes>
+﻿public class CardCollectionBarPresenter : ICardCollectionBarPresenter<SortTypes>
 {
     public ICardCollectionBarView CardCollectionBarView { get; }
     public CardCollectionBarPresenter(ICardCollectionBarView cardCollectionBarView)
@@ -32,11 +28,21 @@ public class CardCollectionBarPresenter : ICardCollectionBarPresenter<SortTypes>
             default:
                 break;
         }
-        CardCollectionBarView.SortButton.SwitchingTypesOfSortsText(sortTypes);
+        CardCollectionBarView.ChangeSortButtonTextAndAppearance(sortTypes);
     }
 
     public void Present(SortTypes args)
     {
        
+    }
+
+    public void HideCardCollectionBar()
+    {
+        CardCollectionBarView.HideCardCollectionBar();
+    }
+
+    public void ShowCardCollectionBar()
+    {
+        CardCollectionBarView.ShowCardCollectionBar();
     }
 }

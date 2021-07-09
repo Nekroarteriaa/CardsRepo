@@ -5,12 +5,13 @@ public class DeckBarView : IDeckBarView<uint>
 {
     uint previousActiveIndex;
     private readonly DeckButtonWidget[] deckButtonWidgets;
-
+    private readonly GameObject deckBarButtonsContainer;
     public int BarButtonsCount => deckButtonWidgets.Length;
 
-    public DeckBarView(DeckButtonWidget[] deckButtonWidgets)
+    public DeckBarView(DeckButtonWidget[] deckButtonWidgets, GameObject deckBarButtonsContainer)
     {
         this.deckButtonWidgets = deckButtonWidgets;
+        this.deckBarButtonsContainer = deckBarButtonsContainer;
     }
 
     public void SwitchDeck(uint deckIndex)
@@ -28,4 +29,13 @@ public class DeckBarView : IDeckBarView<uint>
         });
     }
 
+    public void HideDeckBarButtons()
+    {
+        deckBarButtonsContainer.transform.parent.gameObject.SetActive(false);
+    }
+
+    public void ShowDeckBarButtons()
+    {
+        deckBarButtonsContainer.transform.parent.gameObject.SetActive(true);
+    }
 }

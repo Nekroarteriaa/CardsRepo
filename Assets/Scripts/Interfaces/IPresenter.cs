@@ -16,11 +16,16 @@ public interface IDeckBarPresenter<T>: IPresenter
 {
     void OnDeckButtonPressed(T indexButton);
     bool NeedsToReloadCardCollection { get; }
+
+    void HideDeckBar();
+    void ShowDeckBar();
 }
 
 public interface ICardCollectionBarPresenter<T>: IPresenter<T>
 {
     void Present(ref CardData[] cardsData, SortTypes sortTypes);
+    void HideCardCollectionBar();
+    void ShowCardCollectionBar();
 }
 
 public interface IBattleDeckPresenter<T> : IPresenter<T>

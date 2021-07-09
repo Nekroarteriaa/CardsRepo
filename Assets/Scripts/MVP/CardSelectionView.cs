@@ -73,10 +73,10 @@ public class CardSelectionView : MonoBehaviour, ICardSelectionView
         droppingsSlots = deck.GetComponentsInChildren<DroppingBehaviour>();
 
         DeckView = new BattleDeckView(deckCards);
-        BarView = new DeckBarView(deckButtonWidgets);
+        BarView = new DeckBarView(deckButtonWidgets, deckBarButtonsContainer);
         CollectionView = new CardCollectionView(cardPrefab, cardCollectionColumnContainer, cardCollectionRowsContainer, cardCollectionRowsContentCount);
         EditModeView = new EditModeView(cardCollectionColumnContainer, editModeCardContainer, editModeCard);
-        CardCollectionBarView = new CardCollectionBarView(cardsSortButton, sortSeacher);
+        CardCollectionBarView = new CardCollectionBarView(cardsSortButton, sortSeacher, cardCollectionBarText);
     }
 
 

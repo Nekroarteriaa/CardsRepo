@@ -14,6 +14,8 @@ public interface IDeckBarView<T>
 {
     void SwitchDeck(T deckIndex);
     int BarButtonsCount { get; }
+    void HideDeckBarButtons();
+    void ShowDeckBarButtons();
 }
 
 public interface IDeckButton<T> : IElementClicked<T>
@@ -49,10 +51,13 @@ public interface IEditModeView
 
 public interface ICardCollectionBarView
 {
-    CollectionCardsSortButton SortButton { get; }
+    void ChangeSortButtonTextAndAppearance(SortTypes sortTypes);
     void SortArrayByLevel(ref CardData[] data);
     void SortArrayByEnergyCost(ref CardData[] data);
     void SortArrayByRarity(ref CardData[] data);
+    void AnimateSortButton();
+    void HideCardCollectionBar();
+    void ShowCardCollectionBar();
 }
 
 

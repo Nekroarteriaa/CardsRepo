@@ -37,4 +37,13 @@ public class DeckBarPresenter : IDeckBarPresenter<uint>
         previousIndexButton = indexButton;
     }
 
+    public void HideDeckBar()
+    {
+        deckBarView.HideDeckBarButtons();
+    }
+
+    public void ShowDeckBar()
+    {
+        deckBarView.ShowDeckBarButtons();
+    }
 }

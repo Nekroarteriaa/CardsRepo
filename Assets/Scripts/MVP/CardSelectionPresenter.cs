@@ -101,6 +101,8 @@ public class CardSelectionPresenter : IPresenter
 
     private void ExitEditMode()
     {
+        DeckBarPrsntr.ShowDeckBar();
+        CardCollectionBarPrsntr.ShowCardCollectionBar();
         CardSubMenuPrstr.HideSubMenu();
         EditCardModePrsntr.ExitEditMode();
         cardSelectionView.ReloadView();
@@ -114,6 +116,8 @@ public class CardSelectionPresenter : IPresenter
 
     private void EnterEditMode(CardWidget obj)
     {
+        DeckBarPrsntr.HideDeckBar();
+        CardCollectionBarPrsntr.HideCardCollectionBar();
         EditCardModePrsntr.Present(obj);
         BattleDeckPrsntr.PresentEditModeOnDeckCards();
     }
@@ -150,6 +154,7 @@ public class CardSelectionPresenter : IPresenter
     {
         CardData[] collectionCardData = BattleDeckPrsntr.CardCollectionData();
         SortAndReloadCardCollection(ref collectionCardData);
+        this.cardSelectionView.CardCollectionBarView.AnimateSortButton();
     }
 
 

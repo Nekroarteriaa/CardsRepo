@@ -54,7 +54,7 @@ public class CollectionCardsSortButton : MonoBehaviour , IElementClicked<uint>
         onElementClicked?.Invoke(counter);
     }
 
-    public void SwitchingTypesOfSortsText(SortTypes sortTypes)
+    public void ApplyCustomChangesInSortButton(SortTypes sortTypes)
     {
         switch (sortTypes)
         {
