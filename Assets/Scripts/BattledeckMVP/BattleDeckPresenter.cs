@@ -148,5 +148,13 @@ public class BattleDeckPresenter : IBattleDeckPresenter<int>
         return keyValue;
     }
 
-    
+    public void SaveSorttedCardCollectionOnDictionary(CardData[] sortedCardData)
+    {
+        var activeDeck = decks[player.GetActiveDeckIndex()];
+        var sortedCardDataLength = Convert.ToUInt64(sortedCardData.Length);
+        for (ulong i = 0; i < sortedCardDataLength; i++)
+        {
+            activeDeck[PlayerModel.DECK_SIZE + i] = sortedCardData[i];
+        }
+    }
 }

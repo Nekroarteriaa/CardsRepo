@@ -55,11 +55,14 @@ public class CardSelectionView : MonoBehaviour, ICardSelectionView
     #region  SortBarView
     [SerializeField]
     TextMeshProUGUI cardCollectionBarText;
-
     [SerializeField]
     CollectionCardsSortButton cardsSortButton;
+    [SerializeField]
+    SortTypes sortSeacher;
     public ICardCollectionBarView CardCollectionBarView { get; set ; }
-    public event Action<uint> onSortButtonClicked;
+    public SortTypes SortSearch => sortSeacher;
+
+    public event Action<SortTypes> onSortButtonClicked;
     #endregion
 
     #region Unity Methods
@@ -73,7 +76,7 @@ public class CardSelectionView : MonoBehaviour, ICardSelectionView
         BarView = new DeckBarView(deckButtonWidgets);
         CollectionView = new CardCollectionView(cardPrefab, cardCollectionColumnContainer, cardCollectionRowsContainer, cardCollectionRowsContentCount);
         EditModeView = new EditModeView(cardCollectionColumnContainer, editModeCardContainer, editModeCard);
-        CardCollectionBarView = new CardCollectionBarView(cardsSortButton, cardCollectionBarText);
+        CardCollectionBarView = new CardCollectionBarView(cardsSortButton, sortSeacher);
     }
 
 
@@ -160,9 +163,10 @@ public class CardSelectionView : MonoBehaviour, ICardSelectionView
         onCardDroppedInEditMode?.Invoke(cardDropped);
     }
 
-    private void OnSortButtonClicked(uint counter)
+    private void OnSortButtonClicked(uint sortTypes)
     {
-        onSortButtonClicked?.Invoke(counter);
+        sortSeacher = (SortTypes)sortTypes;
+        onSortButtonClicked?.Invoke(sortSeacher);
     }
 
 

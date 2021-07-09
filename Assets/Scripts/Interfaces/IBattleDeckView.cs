@@ -49,7 +49,10 @@ public interface IEditModeView
 
 public interface ICardCollectionBarView
 {
-    void SortCardCollection();
+    CollectionCardsSortButton SortButton { get; }
+    void SortArrayByLevel(ref CardData[] data);
+    void SortArrayByEnergyCost(ref CardData[] data);
+    void SortArrayByRarity(ref CardData[] data);
 }
 
 
@@ -64,7 +67,7 @@ public interface IElementClicked
 }
 
 
-public interface ICardSelectionView : IViewController<uint>, IDeckBarButtonHandler<uint>, ICardClicked<CardWidget>, IDropCard<CardWidget>, ISortButtonHandler<uint>
+public interface ICardSelectionView : IViewController<uint>, IDeckBarButtonHandler<uint>, ICardClicked<CardWidget>, IDropCard<CardWidget>, ISortButtonHandler<SortTypes>
 {
     void ReloadView();
 }
@@ -90,6 +93,7 @@ public interface IGraphicResources
 
 public interface ISortButtonHandler<T>
 {
+    SortTypes SortSearch { get; }
     event Action<T> onSortButtonClicked;
 }
 

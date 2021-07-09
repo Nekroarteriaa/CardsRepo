@@ -10,7 +10,7 @@ public class CardSelectionPresenter : IPresenter
     public readonly ICardCollectionPresenter<CardData[]> CardCollectionPrsntr;
     public readonly CardSubMenuPresenter CardSubMenuPrstr;
     public readonly IEditModePresenter<CardWidget> EditCardModePrsntr;
-    public readonly ICardCollectionBarPresenter<uint> CardCollectionBarPrsntr;
+    public readonly ICardCollectionBarPresenter<SortTypes> CardCollectionBarPrsntr;
     public readonly ICardSelectionView cardSelectionView;
     
 
@@ -41,13 +41,24 @@ public class CardSelectionPresenter : IPresenter
 
     private void LoadGameCards()
     {
-        BattleDeckPrsntr.Present(cardSelectionView.BarView.BarButtonsCount);
-        DeckBarPrsntr.Present();
-        CardCollectionPrsntr.Present(BattleDeckPrsntr.CardCollectionData());
+        LoadDeckCards();
+        LoadCollectionCards();
         cardSelectionView.SetClickListenerToCards();
     }
 
-  
+    private void LoadDeckCards()
+    {
+        BattleDeckPrsntr.Present(cardSelectionView.BarView.BarButtonsCount);
+        DeckBarPrsntr.Present();
+    }
+
+    private void LoadCollectionCards()
+    {
+        CardData[] collectionCardData = BattleDeckPrsntr.CardCollectionData();
+        collectionCardData = SortCollectionCards(ref collectionCardData);
+        CardCollectionPrsntr.Present(collectionCardData);
+    }
+
 
     private void OnCardClicked(CardWidget clickedCard)
     {
@@ -71,6 +82,9 @@ public class CardSelectionPresenter : IPresenter
         SaveSwitchDataOnTheDictionary(deckCard);
         EditCardModePrsntr.SwitchCardFromCollectionToDeck(deckCard);
         ExitEditMode();
+
+        CardData[] collectionCardData = BattleDeckPrsntr.CardCollectionData();
+        SortAndReloadCardCollection(ref collectionCardData);
     }
 
     private void SaveSwitchDataOnTheDictionary(CardWidget deckCard)
@@ -112,14 +126,7 @@ public class CardSelectionPresenter : IPresenter
     private void LoadDeck(uint buttonIndex)
     {
         PresentTheSelectedDeck(buttonIndex);
-        ReloadTheCardCollection();
-    }
-
-    private void ReloadTheCardCollection()
-    {
-        if (!DeckBarPrsntr.NeedsToReloadCardCollection)
-            return;
-        CardCollectionPrsntr.ReloadCardCollection(BattleDeckPrsntr.CardCollectionData());
+        LoadSelectedDeckCardCollection();
     }
 
     private void PresentTheSelectedDeck(uint buttonIndex)
@@ -128,9 +135,36 @@ public class CardSelectionPresenter : IPresenter
         BattleDeckPrsntr.PresentActiveDeck();
     }
 
-    void OnSortButtonClicked(uint counter)
+    private void LoadSelectedDeckCardCollection()
     {
+        if (!DeckBarPrsntr.NeedsToReloadCardCollection)
+            return;
 
+        CardData[] collectionCardData = BattleDeckPrsntr.CardCollectionData();
+        SortAndReloadCardCollection(ref collectionCardData);
+    }
+
+   
+
+    void OnSortButtonClicked(SortTypes counter)
+    {
+        CardData[] collectionCardData = BattleDeckPrsntr.CardCollectionData();
+        SortAndReloadCardCollection(ref collectionCardData);
+    }
+
+
+    CardData[] SortCollectionCards(ref CardData[] cardsData)
+    {
+        CardCollectionBarPrsntr.Present(ref cardsData, cardSelectionView.SortSearch);
+        BattleDeckPrsntr.SaveSorttedCardCollectionOnDictionary(cardsData);
+        return cardsData;
+    }
+
+    void SortAndReloadCardCollection(ref CardData[] cardsData)
+    {
+        CardData[] collectionCardData = cardsData;
+        collectionCardData = SortCollectionCards(ref collectionCardData);
+        CardCollectionPrsntr.ReloadCardCollection(collectionCardData);
     }
 
     ~CardSelectionPresenter()

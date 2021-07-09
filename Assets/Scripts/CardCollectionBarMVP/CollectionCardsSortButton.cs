@@ -19,6 +19,12 @@ public class CollectionCardsSortButton : MonoBehaviour , IElementClicked<uint>
 
     public event Action<uint> onElementClicked;
 
+    const string LEVEL_TEXT = "Level";
+    const string ENERGY_TEXT = "Energy";
+    const string RARITY_TEXT = "Rarity";
+
+   
+
     private void Awake()
     {
         selfButton = GetComponent<Button>();
@@ -29,13 +35,12 @@ public class CollectionCardsSortButton : MonoBehaviour , IElementClicked<uint>
     private void OnEnable()
     {
         selfButton.onClick.AddListener(()=>{
-            OnSortButtonClicked(counter);
+
             if (counter < 2)
                 counter++;
             else
              counter = 0;
-
-            SwitchingTypesOfSortsText(counter);
+            OnSortButtonClicked(counter);
         });
     }
 
@@ -49,24 +54,31 @@ public class CollectionCardsSortButton : MonoBehaviour , IElementClicked<uint>
         onElementClicked?.Invoke(counter);
     }
 
-    void SwitchingTypesOfSortsText(uint counter)
+    public void SwitchingTypesOfSortsText(SortTypes sortTypes)
     {
-        switch (counter)
+        switch (sortTypes)
         {
-            case 0:
+            case SortTypes.LevelType:
                 selfImage.sprite = originalSprite;
-                buttonText.text = "Level";
+                buttonText.text = LEVEL_TEXT;
                 break;
-            case 1:
-                buttonText.text = "Energy";
+            case SortTypes.EnergyCost:
+                buttonText.text = ENERGY_TEXT;
                 break;
-            case 2:
+            case SortTypes.RarityType:
                 selfImage.sprite = typeSortButtonSprite;
-                buttonText.text = "Rarity";
+                buttonText.text = RARITY_TEXT;
                 break;
             default:
                 break;
         }
-        
     }
+}
+
+[System.Serializable]
+public enum SortTypes
+{
+    LevelType,
+    EnergyCost,
+    RarityType
 }

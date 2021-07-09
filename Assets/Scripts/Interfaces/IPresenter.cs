@@ -20,7 +20,7 @@ public interface IDeckBarPresenter<T>: IPresenter
 
 public interface ICardCollectionBarPresenter<T>: IPresenter<T>
 {
-
+    void Present(ref CardData[] cardsData, SortTypes sortTypes);
 }
 
 public interface IBattleDeckPresenter<T> : IPresenter<T>
@@ -30,8 +30,9 @@ public interface IBattleDeckPresenter<T> : IPresenter<T>
     void PresentEditModeOnDeckCards();
     void StopEditModeOnDeckCards();
     void SaveSelectedDeckChanges(ulong deckCarId, CardWidget deckCard, ulong collectionCardId, CardWidget collectionCard);
-
     ulong GetCardDataIDByValue(CardData cardData);
+
+    void SaveSorttedCardCollectionOnDictionary(CardData[] sortedCardData);
 }
 
 public interface ICardSubMenuPresenter<T> : IPresenter<T>
